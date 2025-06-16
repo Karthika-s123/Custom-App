@@ -1,0 +1,8 @@
+{
+  "apikey": {
+    "type": "text",
+    "display_name": "API Key",
+    "required": true,
+    "default_value": ""
+  }
+}

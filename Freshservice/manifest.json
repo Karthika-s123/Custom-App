@@ -1,0 +1,31 @@
+{
+  "platform-version": "2.3",
+  "product": {
+    "freshservice": {
+      "location": {
+        "full_page_app": {
+          "url": "index.html",
+          "icon": "styles/images/icon.svg"
+        },
+        "ticket_sidebar": {
+          "url": "ticket.html",
+          "icon": "styles/images/icon.svg"
+        }
+      },
+      "events": {
+        "ticket.replyClick": {
+          "handler": "ticket.js"
+        }
+      }
+    }
+  },
+  "permissions": {
+    "request": {
+      "domains": ["workdeft973.freshservice.com"]
+    }
+  },
+  "engines": {
+    "node": "18.13.0",
+    "fdk": "9.5.0"
+  }
+}
