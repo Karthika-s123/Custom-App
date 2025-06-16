@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://static.freshdev.io/fdk/2.0/assets/freshteam.css">
+    <script src="https://static.freshdev.io/fdk/2.0/assets/fresh_client.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <style>
+      body {
+        background: linear-gradient(120deg, #e3ecfa 0%, #f4f8fb 100%);
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(30,60,90,0.13);
+        padding: 44px 54px 36px 54px;
+        min-width: 350px;
+        max-width: 420px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 22px;
+        position: relative;
+        overflow: hidden;
+      }
+      .container::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, #1a73e8 0%, #e3ecfa 100%);
+        opacity: 0.08;
+        border-radius: 50%;
+        z-index: 0;
+      }
+      .container h2 {
+        color: #1a355e;
+        margin-bottom: 18px;
+        font-size: 1.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        z-index: 1;
+      }
+      .form-group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 12px;
+        z-index: 1;
+      }
+      label {
+        font-weight: 600;
+        color: #1a355e;
+        margin-bottom: 7px;
+        font-size: 15px;
+        letter-spacing: 0.2px;
+      }
+      input[type="url"], input[type="text"] {
+        width: 100%;
+        padding: 13px 16px;
+        border: 1.5px solid #dbe6ec;
+        border-radius: 9px;
+        font-size: 15px;
+        background: #f9fbfd;
+        transition: border 0.2s, box-shadow 0.2s;
+        margin-bottom: 2px;
+        box-sizing: border-box;
+        outline: none;
+      }
+      input[type="url"]:focus, input[type="text"]:focus {
+        border: 1.5px solid #1a73e8;
+        background: #fff;
+        box-shadow: 0 2px 12px rgba(26,115,232,0.09);
+      }
+      .error {
+        font-size: 13px;
+        margin-top: 2px;
+        color: #e74c3c;
+        display: block;
+      }
+      .icon-input {
+        position: relative;
+        width: 100%;
+      }
+      .icon-input input {
+        padding-left: 40px;
+      }
+      .icon-input .input-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 19px;
+        color: #1a73e8;
+        pointer-events: none;
+        opacity: 0.7;
+      }
+      .divider {
+        width: 100%;
+        height: 1.5px;
+        background: linear-gradient(90deg, #e3ecfa 0%, #dbe6ec 100%);
+        margin: 18px 0 10px 0;
+        border-radius: 2px;
+        z-index: 1;
+      }
+      /* Extra: Add a subtle animated gradient bar at the bottom */
+      .gradient-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(90deg, #1a73e8, #e3ecfa, #1a73e8);
+        background-size: 200% 100%;
+        animation: gradientMove 3s linear infinite;
+        border-radius: 0 0 20px 20px;
+        z-index: 2;
+      }
+      @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+      }
+      /* Extra: Add a hover effect to input fields */
+      input[type="url"]:hover, input[type="text"]:hover {
+        border-color: #1a73e8;
+        box-shadow: 0 1px 8px rgba(26,115,232,0.06);
+      }
+      /* Extra: Responsive for mobile */
+      @media (max-width: 500px) {
+        .container {
+          min-width: 90vw;
+          max-width: 98vw;
+          padding: 24px 8vw 24px 8vw;
+        }
+      }
+    </style>
+    <script type="text/javascript">
+      function getConfigs(configs) {
+        jQuery("#error_div_domain").hide();
+        jQuery("#error_div_api").hide();
+        jQuery("input[name=domain]").val(configs ? configs["domain"] : "");
+        jQuery("input[name=api_key]").val(configs ? configs["api_key"] : "");
+      }
+
+      function validate() {
+        let isValid = true;
+        var inputDomain = jQuery("input[name=domain]").val();
+        var urlPattern = /^(https?:\/\/)?([a-z0-9]+\.[a-z]{2,})([\/\w .-]*)*\/?$/i;
+        if (!urlPattern.test(inputDomain)) {
+          jQuery("#error_div_domain").show();
+          isValid = false;
+        } else {
+          jQuery("#error_div_domain").hide();
+        }
+
+        var inputApi = jQuery("input[name=api_key]").val();
+        if (!inputApi.match(/.+/)) {
+          jQuery("#error_div_api").show();
+          isValid = false;
+        } else {
+          jQuery("#error_div_api").hide();
+        }
+        return isValid;
+      }
+
+      function postConfigs() {
+        var domain = jQuery("input[name=domain]").val();
+        var api_key = jQuery("input[name=api_key]").val();
+        return {
+          domain,
+          api_key
+        };
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Freshservice App Setup</h2>
+      <div class="form-group">
+        <label for="domain">Freshservice Domain</label>
+        <div class="icon-input">
+          <span class="input-icon">🌐</span>
+          <input type="url" name="domain" placeholder="e.g. yourcompany.freshservice.com" />
+        </div>
+        <span id="error_div_domain" class="error" style="display: none;">Please enter a valid domain.</span>
+      </div>
+      <div class="divider"></div>
+      <div class="form-group">
+        <label for="api_key">Freshservice API key</label>
+        <div class="icon-input">
+          <span class="input-icon">🔑</span>
+          <input type="text" name="api_key" placeholder="Paste your API key here" />
+        </div>
+        <span id="error_div_api" class="error" style="display: none;">Please enter a valid API key.</span>
+      </div>
+    </div>
+  </body>
+</html>
