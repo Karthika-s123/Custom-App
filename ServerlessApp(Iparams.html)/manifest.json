@@ -1,0 +1,34 @@
+{
+  "platform-version": "2.3",
+  "product": {
+    "freshservice": {
+      "events": {
+        "onTicketCreate": {
+          "handler": "onTicketCreateHandler"
+        },
+         "onTicketUpdate": {
+           "handler": "onTicketUpdateHandler"
+         },
+          "onConversationCreate": {
+    "handler": "onConversationCreateCallback"
+  },
+  "onUserCreate": {
+      "handler": "onUserCreateCallback"
+  },
+  "onUserUpdate": {
+    "handler": "onUserUpdateCallback"
+  },
+  "onUserDelete": {
+      "handler": "onUserDeleteCallback"
+  },
+   "onChangeCreate": {
+    "handler": "onChangeCreateCallback"
+  } 
+      }
+    }
+  },
+  "engines": {
+    "node": "18.13.0",
+    "fdk": "9.5.0"
+  }
+}
