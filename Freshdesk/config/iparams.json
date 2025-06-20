@@ -1,0 +1,12 @@
+{
+  "api_key": {
+    "type": "text",
+    "display_name": "API Key",
+    "required": true
+  },
+  "domain": {
+    "type": "text",
+    "display_name": "Domain Name",
+    "required": true
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>Ticket Details</title>
+ <style>
+.card {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.card-item {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #333;
+}
+
+.card-item strong {
+  display: inline-block;
+  width: 150px;
+  color: #555;
+}
+
+ </style>
+ <script async src="{{{appclient}}}"></script>
+</head>
+<body>
+ <label for="ticket_id">Enter Ticket ID:</label><br />
+ <input type="text" id="ticket_id" placeholder="e.g., 1234" /><br /><br />
+ <button class="btn" onclick="TicketDetails()">Ticket Data</button>
+ 
+ <div id="apptext"></div>
+ <script src="https://static.freshdev.io/fdk/2.0/assets/fresh_client.js"></script>
+    <script defer src="scripts/app.js"></script>
+</body>
+</html>
