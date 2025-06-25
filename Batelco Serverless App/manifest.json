@@ -1,0 +1,19 @@
+{
+    "platform-version": "2.3",
+    "product": {
+      "freshdesk": {
+        "events": {
+          "onTicketUpdate": {
+            "handler": "onTicketUpdateHandler"
+          }
+        },
+        "requests": {
+          "updateTicketStatus": {}
+        }
+      }
+    },
+    "engines": {
+      "node": "18.13.0",
+      "fdk": "9.5.0"
+    }
+  }

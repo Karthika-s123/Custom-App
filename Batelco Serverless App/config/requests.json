@@ -1,0 +1,15 @@
+{
+  "updateTicketStatus": {
+    "schema": {
+      "method": "PUT",
+      "protocol": "https",
+      "host": "batelcobusiness.freshdesk.com",
+      "path": "/api/v2/tickets/<%= context.ticket_id %>",
+      "headers": {
+        "Accept": "application/json",
+        "Authorization": "Basic Yk5pclRQQXVVaVprd01aMXBLZHA6eA==",
+        "Content-Type": "application/json"
+      }
+    }
+  }
+}
