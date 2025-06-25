@@ -217,7 +217,6 @@ iparams.html
       <div class="form-group">
         <label for="domain">Freshservice Domain</label>
         <div class="icon-input">
-          <span class="input-icon">🌐</span>
           <input type="url" name="domain" placeholder="e.g. yourcompany.freshservice.com" />
         </div>
         <span id="error_div_domain" class="error" style="display: none;">Please enter a valid domain.</span>
@@ -226,7 +225,6 @@ iparams.html
       <div class="form-group">
         <label for="api_key">Freshservice API key</label>
         <div class="icon-input">
-          <span class="input-icon">🔑</span>
           <input type="text" name="api_key" placeholder="Paste your API key here" />
         </div>
         <span id="error_div_api" class="error" style="display: none;">Please enter a valid API key.</span>
