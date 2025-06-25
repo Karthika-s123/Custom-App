@@ -1,0 +1,28 @@
+{
+  "getTicketsWithStatus32": {
+    "schema": {
+      "method": "GET",
+      "protocol": "https",
+      "host": "batelcobusiness.freshdesk.com",
+      "path": "/api/v2/tickets/<%= context.id %>",
+      "headers": {
+        "Accept": "application/json",
+        "Authorization": "Basic amRITmtjOEVVczVjQmJhR092ZkU6",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "updateTicketStatus": {
+    "schema": {
+      "method": "PUT",
+      "protocol": "https",
+      "host": "batelcobusiness.freshdesk.com",
+      "path": "/api/v2/tickets/<%= context.ticket_id %>",
+      "headers": {
+        "Accept": "application/json",
+        "Authorization": "Basic amRITmtjOEVVczVjQmJhR092ZkU6",
+        "Content-Type": "application/json"
+      }
+    }
+  }
+}
